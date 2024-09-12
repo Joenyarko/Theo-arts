@@ -198,6 +198,17 @@ p {
 }
 /* End Header section */
 
+p {
+	color: black;
+	font-size: 1.4rem;
+	margin-top: 5px;
+	line-height: 2.5rem;
+	font-weight: 300;
+	letter-spacing: 0.05rem;
+}
+
+
+
 /* Hero Section */
 #hero {
 	background-image: url(./img/IMG_0315.JPG);
@@ -445,6 +456,99 @@ p {
 	z-index: -1;
 }
 /* End About Section */
+/* Art Section */
+/* Art Section */
+#art .art {
+	text-align: center;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 100px 20px;
+  }
+  
+  #art .col-right {
+	width: 100%;
+  }
+  
+  #art .col-right h2 {
+	font-size: 1.8rem;
+	font-weight: 500;
+	letter-spacing: 0.2rem;
+	margin-bottom: 10px;
+  }
+  
+  #art .col-right p {
+	margin-bottom: 20px;
+	text-align: justify;
+	font-size: 1.7rem;
+  }
+  
+  /* First Image (Art Image) */
+  #art .art-img {
+	height: 100%;
+	width: 100%;
+	position: relative;
+	border: 10px solid white;
+  }
+  
+  #art .art-img::after {
+	content: '';
+	position: absolute;
+	left: -33px;
+	top: 19px;
+	height: 98%;
+	width: 98%;
+	border: 7px solid crimson;
+	z-index: -1;
+  }
+  
+  #art .art-img img {
+	height: 300px;
+	width: 300px;
+	display: block;
+	margin: 0 auto;
+  }
+  
+  /* Second Image (New Styling) */
+  #art .second-img img {
+	height: 300px;
+	width: 300px;
+	display: block;
+	margin: 0 auto;
+	border: 5px solid crimson; /* Example styling */
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Example shadow */
+  }
+  
+  /* Responsive Design - Mobile and Tablets */
+  @media only screen and (max-width: 768px) {
+	#art .art {
+	  padding: 50px 10px;
+	}
+  
+	#art .col-right h2 {
+	  font-size: 1.5rem;
+	}
+  
+	#art .col-right p {
+	  font-size: 1.5rem;
+	  text-align: justify;
+	  margin-bottom: 15px;
+	}
+  
+	#art .art-img img,
+	#art .second-img img {
+	  width: 80%;
+	  max-width: 250px;
+	  height: auto;
+	}
+  
+	#art .col-right {
+	  width: 100%;
+	  padding: 0 15px;
+	}
+  }
+  
+/* End Art Section */
+
 
 /* contact Section */
 #contact .contact {
@@ -633,68 +737,63 @@ p {
 		text-align: left;
 	}
 	/* End About */
-	/* Exhibition Section */
+/* Exhibition Section */
 #exhibition {
 	padding: 60px 20px;
 	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+	text-align: center;
+  }
+  
+  .section-title {
+	font-size: 4rem;
+	color:black;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	margin-bottom: 40px;
   }
   
   .exhibition-container {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 20px;
 	max-width: 1200px;
 	margin: 0 auto;
   }
   
-  .exhibition-item {
-	width: 48%;
-	margin-bottom: 40px;
-  }
-  
-  .exhibition-item h2 {
-	font-size: 3rem;
-	color: white;
-	margin-bottom: 10px;
-  }
-  
-  .exhibition-item p {
-	font-size: 1.5rem;
-	color:white;
-	margin-bottom: 10px;
-  }
-  
-  .exhibition-images {
-	display: flex;
-	gap: 10px;
-  }
-  
   .image-box {
-	flex: 1;
-	height: 200px;
+	height: 250px; /* Set a fixed height for all images */
 	overflow: hidden;
 	border-radius: 8px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+	transition: transform 0.3s ease;
   }
   
   .image-box img {
 	width: 100%;
 	height: 100%;
-	object-fit: cover;
+	object-fit: cover; /* This makes sure the image covers the entire box while keeping its aspect ratio */
+	transition: transform 0.3s ease;
+  }
+  
+  .image-box:hover img {
+	transform: scale(1.05); /* Slight zoom on hover */
   }
   
   /* Responsive Design */
   @media (max-width: 768px) {
-	.exhibition-item {
-	  width: 100%;
+	.section-title {
+	  font-size: 3rem;
 	}
   
 	.image-box {
-	  height: 150px;
+	  height: 150px; /* Adjust height for mobile */
+	}
+  
+	.exhibition-container {
+	  grid-template-columns: 1fr; /* Single-column layout on smaller screens */
 	}
   }
   
-
 	/* contact  */
 	#contact .contact {
 		flex-direction: column;
@@ -762,3 +861,107 @@ p {
 	}
 }
 /* End  Media Query For Desktop */
+
+/* Gallery Section */
+#gallery {
+    padding: 60px 20px;
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    color: white;
+    text-align: center;
+}
+
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    width: 300px;
+    height: 200px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.view-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color:white;
+    color:black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size:1.5rem;
+}
+.view-btn:hover{
+	background-color:crimson;
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 60vh;
+    border-radius: 10px;
+}
+
+.lightbox-content p {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gallery-item {
+        width: 100%;
+        height: auto;
+    }
+
+    .view-btn {
+        font-size: 0.9rem;
+    }
+}
+
+  
